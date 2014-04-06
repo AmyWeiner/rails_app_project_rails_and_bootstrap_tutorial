@@ -134,9 +134,13 @@ me and I’ll add a note to the README so that others can find your work.
 Credits
 --
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Daniel Kehoe wrote the tutorial on which this application is based.
 
-License
+This is my implementation of the application as a result of following the tutorial.
+
+MIT License
 --
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+MIT License
+
+Copyright ©2013-14 Daniel Kehoe
