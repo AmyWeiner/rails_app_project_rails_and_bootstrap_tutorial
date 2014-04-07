@@ -5,4 +5,19 @@ class Visitor < ActiveRecord::Base
   validates_presence_of :favorite
 
   IMAGE_LABELS = ['San Francisco', 'Sydney', 'Paris', 'New York']
+
+  def update_spreadsheet
+    connection = GoogleDrive.login(Rails.application.secrets.gmail_username,
+    Rails.application.secrets.gmail_password)
+    ss = connection.spreadsheet_by_title('Rails-Bootstrap-Example')
+    if ss.nil?
+      ss = connection.create_spreadsheet('Rails-Bootstrap-Example') 
+    end
+    ws = ss.worksheets[0]
+    last_row = 1 + ws.num_rows 
+    ws[last_row, 1] = Time.now 
+    ws[last_row, 2] = self.favorite 
+    ws[last_row, 3] = self.comment 
+    ws.save
+  end
 end
